@@ -50,3 +50,8 @@ button {
     margin-left: 40px;
   }
 
+  .errhandel{
+    color: red;
+    background-color: black;
+  }
+
