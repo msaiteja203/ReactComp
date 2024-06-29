@@ -1,0 +1,32 @@
+{
+    "data" : [
+        {
+            "mobile": "Iqoo",
+            "type": "mobile",
+            "price": 19000,
+            "capacity": 3
+          },
+          {
+            "mobile": "Oppo",
+            "type": "mobile",
+            "price": 25000,
+            "capacity": 4
+          },
+          {
+            "mobile": "oneplus",
+            "type": "mobile",
+            "price": 45000,
+            "capacity": 5
+          },
+          {
+            "mobile": "vivo",
+            "type": "mobile",
+            "price": 25000,
+            "capacity": 6
+          },
+    
+    ]
+    
+}
+
+    /* json-server --watch (path of file to watch) -p 4500 */

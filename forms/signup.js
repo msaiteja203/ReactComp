@@ -45,6 +45,8 @@ function Signup() {
     if(!data.username.trim()){
       error.username = "firstname required"
     }
+
+    return error;
   }
   return (
     <div className="container">

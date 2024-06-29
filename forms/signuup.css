@@ -1,5 +1,5 @@
 .container{
-    background: rgb(142, 235, 118);
+   
     display: block;
     width: 50vw;
     padding: 10px;
@@ -53,5 +53,6 @@ button {
   .errhandel{
     color: red;
     background-color: black;
+    z-index: 4;
   }
 
