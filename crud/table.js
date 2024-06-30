@@ -2,7 +2,7 @@ function Table(props) {
   return (
     <div>
       <table>
-        {props.product.map((data) => (
+        {props.product.map((data, id) => (
           <tr key={data.id}>
             <td>{data.id}</td>
             <td>{data.name}</td>
@@ -12,7 +12,7 @@ function Table(props) {
               <button className="btn btn-primary">Edit</button>
             </td>
             <td>
-              <button className="btn btn-primary">Delete</button>
+              <button className="btn btn-primary" onClick={() => props.delete(data.id)}>Delete</button>
             </td>
           </tr>
         ))}

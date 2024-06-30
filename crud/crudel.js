@@ -2,11 +2,13 @@ import Form from "./form";
 import Table from "./table";
 import { Getdata } from "./apifl";
 import { useEffect, useState } from "react";
+import { Deldata } from "./apifl";
 
 
 
 function Crudel(){
 const [product, setProducts] = useState([]);
+const [openForm, setopenForm] = useState();
     useEffect(
         () => {
      getProduct();
@@ -17,11 +19,23 @@ const [product, setProducts] = useState([]);
         console.log(res);
         setProducts(res.data);
     }
+
+    let delProduct = async (id) => {
+         await Deldata(id);
+         getProduct()
+    }
+
+    let showForm = () => {
+        setopenForm(true);
+    }
     return(
         <div>
-            <Table product = {product}/>
+            <Table product = {product} delete={delProduct}/>
             <Form />
-            <button className="btn btn-primary">Get Productss</button>
+            <button className="btn btn-primary" onClick={() => {showForm()}}>Get Productss</button>
+            {
+                openForm && <Form />
+            }
         </div>
     );
 }
