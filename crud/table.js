@@ -2,7 +2,7 @@ function Table(props) {
   return (
     <div>
       <table>
-        {props.product.map((data, id) => (
+        {props.product.map((data, id) => ( 
           <tr key={data.id}>
             <td>{data.id}</td>
             <td>{data.name}</td>
