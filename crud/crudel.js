@@ -2,42 +2,60 @@ import Form from "./form";
 import Table from "./table";
 import { Getdata } from "./apifl";
 import { useEffect, useState } from "react";
-import { Deldata } from "./apifl";
+import { Deldata, postData } from "./apifl";
 
+function Crudel() {
+  const [product, setProducts] = useState([]);
+  const [openForm, setopenForm] = useState(false);
+  const [initialForm, setForm] = useState({
+    mobile: "",
+    price: "",
+    type: "",
+  });
+  useEffect(() => {
+    getProduct();
+  }, []);
 
+  let getProduct = async () => {
+    let res = await Getdata();
 
-function Crudel(){
-const [product, setProducts] = useState([]);
-const [openForm, setopenForm] = useState();
-    useEffect(
-        () => {
-     getProduct();
-        }, [])
+    //instead converting data to json by writing without .json we can write async n await function in axios
+    console.log(res);
+    setProducts(res.data);
+  };
 
-    let getProduct = async () => {
-        let res = await Getdata();
-        console.log(res);
-        setProducts(res.data);
-    }
+  let delProduct = async (id) => {
+    await Deldata(id);
+    getProduct();
+  };
 
-    let delProduct = async (id) => {
-         await Deldata(id);
-         getProduct()
-    }
+  let addProduct = async (data) => {
+    await postData(data);
+    getProduct();
+  }
 
     let showForm = () => {
-        setopenForm(true);
-    }
-    return(
-        <div>
-            <Table product = {product} delete={delProduct}/>
-            <Form />
-            <button className="btn btn-primary" onClick={() => {showForm()}}>Get Productss</button>
-            {
-                openForm && <Form />
-            }
-        </div>
+      setopenForm(true);
+    };
+
+    let closeForm = () => {
+      setopenForm(false);
+    };
+    return (
+      <div>
+        <h1>CRUD Operations</h1>
+        <Table products={product} delete={delProduct} add={addProduct} />
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            showForm();
+          }}
+        >
+          Get Productss
+        </button>
+        {openForm && <Form closeForm={closeForm} data={initialForm} />}
+      </div>
     );
-}
+  };
 
 export default Crudel;
