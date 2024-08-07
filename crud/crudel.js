@@ -1,10 +1,14 @@
 import Form from "./form";
 import Table from "./table";
 import { Getdata } from "./apifl";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Deldata, postData } from "./apifl";
+import contextt from "../usecontxt/contxxt";
+
 
 function Crudel() {
+
+  let aa = useContext(contextt);
   const [product, setProducts] = useState([]);
   const [openForm, setopenForm] = useState(false);
   const [initialForm, setForm] = useState({
@@ -43,6 +47,7 @@ function Crudel() {
     };
     return (
       <div>
+      <p>{aa.name}</p>
         <h1>CRUD Operations</h1>
         <Table products={product} delete={delProduct} add={addProduct} />
         <button
