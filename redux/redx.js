@@ -2,7 +2,10 @@ import "./store";
 
 function Rdx(){
     return(
-        <h1>Redux Example</h1>
+        <div>
+            <h1>Redux Example</h1>
+            <h2>RDX</h2>
+        </div>
     )
 }
 
