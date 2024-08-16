@@ -40,6 +40,8 @@ export default Form;
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { deposit } from "./action";
+import { withdraw } from "./action";
 
 function Form() {
   let dispatch = useDispatch();
@@ -66,7 +68,7 @@ function Form() {
           <button
             className="btn btn-primary col-1"
             onClick={() => {
-              dispatch({ type: "deposit", payload: amount });
+              dispatch(deposit(amount));
               setAmount("");
             }}
           >
@@ -75,7 +77,7 @@ function Form() {
           <button
             className="btn btn-danger mx-2 col-1"
             onClick={() => {
-              dispatch({ type: "withdraw", payload: amount });
+              dispatch( withdraw(amount));
               setAmount("");
             }}
           >

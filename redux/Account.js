@@ -15,8 +15,8 @@ function Account() {
       <thead>
             <tr>
                 <th>Balance</th>
-                <th>mobile No</th>
                 <th>UserName</th>
+                <th>mobile No</th>
             </tr>
         </thead>
         <tbody>
